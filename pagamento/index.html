@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cálculo com Desconto</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }
+    button { padding: 8px 16px; font-size: 16px; cursor: pointer; }
+    #resultado { margin-top: 20px; font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Cálculo do Valor com Desconto</h1>
+  <p>Formas de pagamento:</p>
+  <ol>
+    <li>Dinheiro/PIX (10% de desconto)</li>
+    <li>Débito (5% de desconto)</li>
+    <li>Crédito (sem desconto)</li>
+  </ol>
+
+  <button onclick="calcularCompra()">Calcular valor final</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularCompra() {
+      const valorTotal = Number(prompt("Digite o valor total da compra:"));
+
+      const opcao = prompt(
+        "Escolha a forma de pagamento:\n" +
+        "1 - Dinheiro/PIX (10% de desconto)\n" +
+        "2 - Débito (5% de desconto)\n" +
+        "3 - Crédito (sem desconto)"
+      );
+
+      let valorFinal;
+      let forma;
+
+      switch (Number(opcao)) {
+        case 1:
+          forma = "Dinheiro/PIX";
+          valorFinal = valorTotal * 0.9;
+          break;
+        case 2:
+          forma = "Débito";
+          valorFinal = valorTotal * 0.95;
+          break;
+        case 3:
+          forma = "Crédito";
+          valorFinal = valorTotal;
+          break;
+        default:
+          forma = null;
+      }
+
+      const resultado = document.getElementById("resultado");
+
+      if (forma === null) {
+        resultado.textContent = "Opção inválida. Escolha 1, 2 ou 3.";
+      } else {
+        resultado.textContent =
+          "Forma de pagamento: " + forma + " | Valor final: R$ " + valorFinal.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
