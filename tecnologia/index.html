@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Área de Tecnologia</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }
+    button { padding: 8px 16px; font-size: 16px; cursor: pointer; }
+    #resultado { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Tema: Tecnologia e Programação</h1>
+  <p>Escolha uma área de tecnologia para saber mais sobre ela:</p>
+  <ol>
+    <li>Front-end</li>
+    <li>Back-end</li>
+    <li>Banco de Dados</li>
+    <li>Inteligência Artificial</li>
+    <li>Desenvolvimento Mobile</li>
+    <li>Redes de Computadores</li>
+  </ol>
+
+  <button onclick="escolherArea()">Escolher área</button>
+  <p id="resultado"></p>
+
+  <script>
+    function escolherArea() {
+      const opcao = prompt(
+        "Digite o número da área de tecnologia do seu interesse:\n" +
+        "1 - Front-end\n2 - Back-end\n3 - Banco de Dados\n" +
+        "4 - Inteligência Artificial\n5 - Desenvolvimento Mobile\n6 - Redes de Computadores"
+      );
+
+      let mensagem;
+
+      switch (Number(opcao)) {
+        case 1:
+          mensagem = "Front-end é a parte visual dos sistemas, o que o usuário vê e interage.";
+          break;
+        case 2:
+          mensagem = "Back-end cuida da lógica, dos dados e do que acontece por trás da tela.";
+          break;
+        case 3:
+          mensagem = "Banco de Dados é onde os sistemas guardam e organizam as informações.";
+          break;
+        case 4:
+          mensagem = "Inteligência Artificial ensina máquinas a aprender e tomar decisões.";
+          break;
+        case 5:
+          mensagem = "Desenvolvimento Mobile cria os aplicativos que usamos no celular.";
+          break;
+        case 6:
+          mensagem = "Redes de Computadores conecta os sistemas e faz a informação circular.";
+          break;
+        default:
+          mensagem = null;
+      }
+
+      const resultado = document.getElementById("resultado");
+
+      if (mensagem === null) {
+        resultado.textContent = "Opção inválida. Escolha um número de 1 a 6.";
+      } else {
+        resultado.textContent = mensagem + " Vale a pena explorar essa área e ir praticando aos poucos!";
+      }
+    }
+  </script>
+</body>
+</html>
